@@ -2,14 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-// Estilos para o Header
 const HeaderContainer = styled.header`
   width: 100%;
-  padding: 20px 0;
+  padding: 10px 0;
   background-color: #007bff;
   color: white;
   text-align: center;
   box-shadow: 0 4px 2px -2px gray;
+  position: relative;
+  min-height: 60px;  /* Definindo uma altura mínima consistente */
 
   @media (max-width: 768px) {
     padding: 15px 0;
@@ -23,19 +24,9 @@ const HeaderTitle = styled.h1`
   @media (max-width: 768px) {
     font-size: 1.5rem;
   }
-`;
 
-const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:focus {
-    outline: 3px solid #fff;
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -43,7 +34,9 @@ const Header = () => {
   return (
     <HeaderContainer>
       <HeaderTitle>
-        <StyledLink to="/">Projeto JavaScript</StyledLink>
+        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
+          Meu Projeto JavaScript
+        </Link>
       </HeaderTitle>
     </HeaderContainer>
   );

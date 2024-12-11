@@ -1,29 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-// Estilos para a página LocalStoragePage
+// Estilos para a página ArrayPage
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f4f4f9;
   font-family: 'Roboto', sans-serif;
   color: #2c3e50;
   padding: 20px;
+  width: 100%; /* Ajustado para a largura da tela */
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 5px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   color: #3498db;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const InfoText = styled.p`
   font-size: 1.2rem;
   margin: 10px 0;
   color: #2c3e50;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin: 8px 0;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    margin: 6px 0;
+  }
 `;
 
 const Input = styled.input`
@@ -39,6 +68,22 @@ const Input = styled.input`
   &:focus {
     border-color: #3498db;
     outline: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 250px;
+    font-size: 1rem;
+    padding: 8px;
+    margin: 8px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 200px;
+    font-size: 0.9rem;
+    padding: 6px;
+    margin: 6px;
   }
 `;
 
@@ -61,61 +106,76 @@ const Button = styled.button`
   &:active {
     background-color: #1c5985;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 10px;
+    margin: 8px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 8px;
+    margin: 6px;
+  }
 `;
 
-const StoredValue = styled.h2`
+const Result = styled.div`
   margin-top: 20px;
   font-size: 1.5rem;
   color: #27ae60;
+  word-wrap: break-word;
+  max-width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
-const LocalStoragePage = () => {
-  // Estado para armazenar o valor do input e o valor recuperado do LocalStorage
-  const [inputValue, setInputValue] = useState("");
-  const [storedValue, setStoredValue] = useState("");
+const ArrayPage = () => {
+  const [array, setArray] = useState([1, 2, 3, 4, 5]);
+  const [filterValue, setFilterValue] = useState(0);
 
-  // Função para salvar no LocalStorage
-  const handleSave = () => {
-    localStorage.setItem("userData", inputValue); // Salva o dado no LocalStorage
-    setStoredValue(inputValue); // Atualiza o estado para mostrar na tela
-  };
-
-  // Função para limpar os dados do LocalStorage
-  const handleClear = () => {
-    localStorage.removeItem("userData"); // Remove o dado do LocalStorage
-    setStoredValue(""); // Limpa o estado
-  };
-
-  // Hook para carregar o valor do LocalStorage quando a página é carregada
-  useEffect(() => {
-    const savedValue = localStorage.getItem("userData");
-    if (savedValue) {
-      setStoredValue(savedValue); // Define o valor armazenado no estado
+  const handleFilter = () => {
+    if (filterValue === "") {
+      alert("Por favor, insira um valor para filtrar.");
+      return;
     }
-  }, []); // O array vazio faz o hook rodar apenas uma vez (na montagem do componente)
+    const filteredArray = array.filter(item => item > Number(filterValue));
+    if (filteredArray.length === 0) {
+      alert('Nenhum valor encontrado para o filtro especificado!');
+    }
+    setArray(filteredArray);
+  };
+
+  const handleMap = () => {
+    const mappedArray = array.map(item => item * 2); // Multiplica por 2
+    setArray(mappedArray);
+  };
 
   return (
     <Container>
-      <Title>Salvar e Recuperar Dados com LocalStorage</Title>
+      <Title>Manipulação de Arrays</Title>
+      <InfoText>Array atual: {JSON.stringify(array)}</InfoText>
 
-      {/* Formulário de entrada */}
       <div>
         <Input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)} // Atualiza o estado do input
-          placeholder="Digite algo para salvar"
+          type="number"
+          value={filterValue}
+          onChange={(e) => setFilterValue(Math.max(0, e.target.value))}
+          placeholder="Digite o valor para filtrar"
         />
-        <Button onClick={handleSave}>Salvar</Button>
+        <Button onClick={handleFilter}>Filtrar Valores</Button>
+        <Button onClick={handleMap}>Mapear Valores (Multiplicar por 2)</Button>
       </div>
 
-      {/* Exibição do valor armazenado */}
-      {storedValue && <StoredValue>Valor armazenado: {storedValue}</StoredValue>}
-
-      {/* Botão para limpar o valor do LocalStorage */}
-      <Button onClick={handleClear}>Limpar Dados</Button>
+      <Result>Array modificado: {JSON.stringify(array)}</Result>
     </Container>
   );
 };
 
-export default LocalStoragePage;
+export default ArrayPage;

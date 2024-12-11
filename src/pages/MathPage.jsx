@@ -12,6 +12,7 @@ const Container = styled.div`
   font-family: 'Roboto', sans-serif;
   color: #2c3e50;
   padding: 20px;
+  width: 100%;
 `;
 
 const Title = styled.h1`

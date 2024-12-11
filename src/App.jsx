@@ -15,7 +15,8 @@ import styled from "styled-components";
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Garante que a altura mínima ocupe toda a tela */
+  min-height: 100vh; /* Garante que o #root ocupe a altura completa da tela */
+  padding: 0 20px; /* Mover o padding para o AppContainer */
 `;
 
 const App = () => {

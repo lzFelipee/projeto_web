@@ -12,7 +12,7 @@ const Container = styled.div`
   background: linear-gradient(135deg, #6dd5ed, #2193b0);
   padding: 20px;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 100%; /* Ajustado para 100% */
 `;
 
 const Title = styled.h1`
@@ -89,11 +89,12 @@ const HomePage = () => {
     <Container>
       <Title>Funcionalidades JavaScript</Title>
       <NavList>
-        <NavItem><StyledLink to="/math">MathPage</StyledLink></NavItem>
-        <NavItem><StyledLink to="/date">DatePage</StyledLink></NavItem>
-        <NavItem><StyledLink to="/array">ArrayPage</StyledLink></NavItem>
-        <NavItem><StyledLink to="/localstorage">LocalStoragePage</StyledLink></NavItem>
-        <NavItem><StyledLink to="/api-fetch">APIFetchPage</StyledLink></NavItem>
+        <NavItem><StyledLink to="/math">Math</StyledLink></NavItem>
+        <NavItem><StyledLink to="/date">Date</StyledLink></NavItem>
+        <NavItem><StyledLink to="/array">Array</StyledLink></NavItem>
+        <NavItem><StyledLink to="/localstorage">LocalStorage</StyledLink></NavItem>
+        <NavItem><StyledLink to="/api-fetch">APIFetch</StyledLink></NavItem>
+        <NavItem><StyledLink to="/object">Object</StyledLink></NavItem>
       </NavList>
     </Container>
   );

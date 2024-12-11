@@ -7,27 +7,63 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f4f4f9;
   font-family: 'Roboto', sans-serif;
   color: #2c3e50;
   padding: 20px;
+  width: 100%; /* Garantindo que a largura ocupe 100% */
+
+  @media (max-width: 768px) {
+    padding: 15px; /* Menos padding para telas médias */
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px; /* Reduzindo o padding para telas pequenas */
+  }
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   color: #3498db;
   margin-bottom: 2rem;
+  text-align: center; /* Centralizando o título */
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const LoadingText = styled.p`
   font-size: 1.5rem;
   color: #e67e22;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const ErrorText = styled.p`
   font-size: 1.5rem;
   color: #e74c3c;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const PostList = styled.ul`
@@ -35,7 +71,15 @@ const PostList = styled.ul`
   padding: 0;
   margin: 0;
   width: 100%;
-  max-width: 800px;
+  max-width: 800px; /* Garantindo que a lista não ultrapasse o tamanho da tela */
+
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 5px;
+  }
 `;
 
 const PostItem = styled.li`
@@ -50,17 +94,41 @@ const PostItem = styled.li`
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const PostTitle = styled.h3`
   font-size: 1.8rem;
   color: #3498db;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const PostBody = styled.p`
   font-size: 1.2rem;
   color: #2c3e50;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Settings = styled.div`
@@ -72,6 +140,16 @@ const Settings = styled.div`
   width: 100%;
   max-width: 400px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    max-width: 300px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+    max-width: 250px;
+  }
 `;
 
 const Input = styled.input`
@@ -81,6 +159,16 @@ const Input = styled.input`
   width: 50px;
   border-radius: 5px;
   border: 1px solid #ccc;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 35px;
+    font-size: 0.9rem;
+  }
 `;
 
 const Button = styled.button`
@@ -99,6 +187,16 @@ const Button = styled.button`
 
   &:active {
     background-color: #1c5985;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 6px 10px;
   }
 `;
 

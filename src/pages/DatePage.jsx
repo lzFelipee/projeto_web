@@ -7,23 +7,52 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f4f4f9;
   font-family: 'Roboto', sans-serif;
   color: #2c3e50;
   padding: 20px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 5px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   color: #3498db;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const InfoText = styled.p`
   font-size: 1.2rem;
   margin: 10px 0;
   color: #2c3e50;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin: 8px 0;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    margin: 6px 0;
+  }
 `;
 
 const Input = styled.input`
@@ -39,6 +68,22 @@ const Input = styled.input`
   &:focus {
     border-color: #3498db;
     outline: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 250px;
+    font-size: 1rem;
+    padding: 8px;
+    margin: 8px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 200px;
+    font-size: 0.9rem;
+    padding: 6px;
+    margin: 6px;
   }
 `;
 
@@ -60,12 +105,30 @@ const Button = styled.button`
   &:active {
     background-color: #1c5985;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
 `;
 
 const Result = styled.h2`
   margin-top: 20px;
   font-size: 1.5rem;
   color: #27ae60;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const DatePage = () => {
