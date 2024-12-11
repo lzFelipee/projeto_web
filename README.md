@@ -1,4 +1,4 @@
-# Projeto: Tudo sobre a Linguagem JS e Seus Frameworks Mais Usados
+# Projeto Usando js
 
 Este projeto é uma aplicação **React** criada com **Vite** que aborda os principais conceitos e funcionalidades da linguagem **JavaScript** e seus frameworks mais usados. A aplicação é interativa e didática, permitindo que os usuários explorem funcionalidades como operações matemáticas, manipulação de datas, arrays, objetos, persistência de dados e consumo de APIs.
 
