@@ -798,7 +798,7 @@ Please change the parent <Route path="${F}"> to <Route path="${F==="/"?"*":`${F}
   @media (max-width: 480px) {
     font-size: 1.2rem;
   }
-`,ov=()=>I.jsx(nv,{children:I.jsx(rv,{children:I.jsx(Vi,{to:"/",style:{color:"white",textDecoration:"none"},children:"Meu Projeto JavaScript"})})}),iv=b.footer`
+`,ov=()=>I.jsx(nv,{children:I.jsx(rv,{children:I.jsx(Vi,{to:"/",style:{color:"white",textDecoration:"none"},children:"JavaScript"})})}),iv=b.footer`
   width: 100%;
   padding: 10px 0;
   background-color: #333;
@@ -832,7 +832,7 @@ Please change the parent <Route path="${F}"> to <Route path="${F==="/"?"*":`${F}
   @media (max-width: 480px) {
     font-size: 0.8rem;
   }
-`,uv=()=>I.jsx(iv,{children:I.jsx(lv,{children:"© 2024 Meu Projeto JavaScript - Todos os direitos reservados"})}),av=b.div`
+`,uv=()=>I.jsx(iv,{children:I.jsx(lv,{children:"© 2024 Projeto JavaScript - Todos os direitos reservados"})}),av=b.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Garante que o #root ocupe a altura completa da tela */
